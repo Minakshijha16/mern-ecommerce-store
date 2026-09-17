@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
 import { Link } from "react-router";
+import { mockProducts } from "../data/mockProducts";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -8,10 +9,29 @@ export default function Home() {
   const [category, setCategory] = useState("");
 
   const loadProducts = async () => {
-    const res = await api.get(
-      `/products?search=${search}&category=${category}`
-    );
-    setProducts(res.data);
+    try {
+      const res = await api.get(
+        `/products?search=${search}&category=${category}`
+      );
+      if (res.data && res.data.length > 0) {
+        setProducts(res.data);
+        return;
+      }
+    } catch (err) {
+      console.warn("API request failed, loading local catalog...", err.message);
+    }
+
+    // Graceful fallback for static live demo
+    let filtered = [...mockProducts];
+    if (search) {
+      filtered = filtered.filter((p) =>
+        p.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+    if (category) {
+      filtered = filtered.filter((p) => p.category === category);
+    }
+    setProducts(filtered);
   };
 
   useEffect(() => {

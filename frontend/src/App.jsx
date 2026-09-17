@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router";
+import { createHashRouter, Outlet, RouterProvider } from "react-router";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -21,7 +21,7 @@ function Layout() {
   );
 }
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     element: <Layout />,
     children: [

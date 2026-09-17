@@ -1,15 +1,26 @@
 import { useEffect, useState } from "react";
 import api from "../api/axios";
 import { useParams } from "react-router";
+import { mockProducts } from "../data/mockProducts";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
   const loadProduct = async () => {
-    const res = await api.get("/products/");
-    const p = res.data.find((item) => item._id === id);
-    setProduct(p);
+    try {
+      const res = await api.get("/products/");
+      const p = res.data.find((item) => item._id === id);
+      if (p) {
+        setProduct(p);
+        return;
+      }
+    } catch (err) {
+      console.warn("API request failed, loading product details locally...", err.message);
+    }
+
+    const fallbackProduct = mockProducts.find((item) => item._id === id);
+    setProduct(fallbackProduct || mockProducts[0]);
   };
 
   useEffect(() => {
