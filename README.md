@@ -10,18 +10,6 @@
 
 A high-performance, modern, full-stack E-Commerce web application built with the **MERN** stack (MongoDB, Express.js, React, Node.js) and styled using **Tailwind CSS**.
 
----
-
-## 🌐 Live Demo & Deployment
-
-- 🚀 **Live Demo**: [https://minakshijha16.github.io/mern-ecommerce-store/](https://minakshijha16.github.io/mern-ecommerce-store/)
-- 💻 **GitHub Repository**: [https://github.com/Minakshijha16/mern-ecommerce-store](https://github.com/Minakshijha16/mern-ecommerce-store)
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMinakshijha16%2Fmern-ecommerce-store&project-name=minashop&root-directory=frontend)
-
----
-
 ## 📸 User Interface & Screenshots
 
 ### 1. Storefront & Catalog
