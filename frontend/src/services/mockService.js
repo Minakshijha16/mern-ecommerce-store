@@ -1,4 +1,4 @@
-import { mockProducts as initialMockProducts } from "../data/mockProducts";
+import { mockProducts as initialMockProducts } from "../data/mockProducts.js";
 
 const PRODUCTS_KEY = "minashop_products";
 const USERS_KEY = "minashop_users";
